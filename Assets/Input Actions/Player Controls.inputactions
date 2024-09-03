@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "3f70b0d5-6451-436f-829d-cdaa5d355c00",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "2e9afb52-0450-40ff-87dd-8cde83908992",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -70,105 +88,61 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "UI",
-            "id": "f6d280a1-3143-4319-9bcd-4d12a78b4d3f",
-            "actions": [
-                {
-                    "name": "OpenChat",
-                    "type": "Button",
-                    "id": "ea1e5306-d65f-47fb-b89a-799aac17865a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 },
-                {
-                    "name": "CloseChat",
-                    "type": "Button",
-                    "id": "bd8d5256-f7de-4b00-a6a6-718628f98650",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SendChat",
-                    "type": "Button",
-                    "id": "c0a98e35-1c29-49e9-b26a-6d15e48424bf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Remove",
-                    "type": "Button",
-                    "id": "a09d9fc4-0c15-4c79-8abd-011dc4ccda92",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
                 {
                     "name": "",
-                    "id": "4ba0997b-b6d9-435e-8cd8-69d4de6ab117",
-                    "path": "<Keyboard>/t",
+                    "id": "f69b3551-eb3a-4635-bfa2-af623854834a",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "OpenChat",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "745d83e5-af13-4552-802f-4b927422d3b4",
-                    "path": "<Keyboard>/enter",
+                    "id": "43479fd4-f716-4de5-8eee-6f43b94ea783",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SendChat",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "88639e61-cc3d-4eed-8d82-c684c963b3c8",
-                    "path": "<Keyboard>/numpadEnter",
+                    "name": "1D Axis",
+                    "id": "3ab66f09-987f-4d22-bb6a-fb07118ebc29",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SendChat",
-                    "isComposite": false,
+                    "action": "Rotate",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "8632df59-72de-45fe-9e4b-ea613b0a0459",
-                    "path": "<Keyboard>/escape",
+                    "name": "positive",
+                    "id": "fc174b3b-10c5-4fad-813c-2c10f0999d39",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CloseChat",
+                    "action": "Rotate",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "8c8994b7-95bb-486f-b39a-5328b585ef2f",
-                    "path": "<Keyboard>/backspace",
+                    "name": "negative",
+                    "id": "4bbe77ff-06f3-43b3-be04-5abccb442a8f",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Remove",
+                    "action": "Rotate",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 }
             ]
         }

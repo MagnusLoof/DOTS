@@ -35,6 +35,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f70b0d5-6451-436f-829d-cdaa5d355c00"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""2e9afb52-0450-40ff-87dd-8cde83908992"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -92,105 +110,61 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
-            ""name"": ""UI"",
-            ""id"": ""f6d280a1-3143-4319-9bcd-4d12a78b4d3f"",
-            ""actions"": [
-                {
-                    ""name"": ""OpenChat"",
-                    ""type"": ""Button"",
-                    ""id"": ""ea1e5306-d65f-47fb-b89a-799aac17865a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 },
-                {
-                    ""name"": ""CloseChat"",
-                    ""type"": ""Button"",
-                    ""id"": ""bd8d5256-f7de-4b00-a6a6-718628f98650"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""SendChat"",
-                    ""type"": ""Button"",
-                    ""id"": ""c0a98e35-1c29-49e9-b26a-6d15e48424bf"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Remove"",
-                    ""type"": ""Button"",
-                    ""id"": ""a09d9fc4-0c15-4c79-8abd-011dc4ccda92"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""4ba0997b-b6d9-435e-8cd8-69d4de6ab117"",
-                    ""path"": ""<Keyboard>/t"",
+                    ""id"": ""f69b3551-eb3a-4635-bfa2-af623854834a"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""OpenChat"",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""745d83e5-af13-4552-802f-4b927422d3b4"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""id"": ""43479fd4-f716-4de5-8eee-6f43b94ea783"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SendChat"",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""88639e61-cc3d-4eed-8d82-c684c963b3c8"",
-                    ""path"": ""<Keyboard>/numpadEnter"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""3ab66f09-987f-4d22-bb6a-fb07118ebc29"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SendChat"",
-                    ""isComposite"": false,
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""8632df59-72de-45fe-9e4b-ea613b0a0459"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""name"": ""positive"",
+                    ""id"": ""fc174b3b-10c5-4fad-813c-2c10f0999d39"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""CloseChat"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""8c8994b7-95bb-486f-b39a-5328b585ef2f"",
-                    ""path"": ""<Keyboard>/backspace"",
+                    ""name"": ""negative"",
+                    ""id"": ""4bbe77ff-06f3-43b3-be04-5abccb442a8f"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Remove"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -206,12 +180,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
-        // UI
-        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_OpenChat = m_UI.FindAction("OpenChat", throwIfNotFound: true);
-        m_UI_CloseChat = m_UI.FindAction("CloseChat", throwIfNotFound: true);
-        m_UI_SendChat = m_UI.FindAction("SendChat", throwIfNotFound: true);
-        m_UI_Remove = m_UI.FindAction("Remove", throwIfNotFound: true);
+        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -274,11 +244,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_Rotate;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -291,6 +265,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Rotate.started += instance.OnRotate;
+            @Rotate.performed += instance.OnRotate;
+            @Rotate.canceled += instance.OnRotate;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -298,6 +278,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Rotate.started -= instance.OnRotate;
+            @Rotate.performed -= instance.OnRotate;
+            @Rotate.canceled -= instance.OnRotate;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -315,76 +301,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-
-    // UI
-    private readonly InputActionMap m_UI;
-    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_OpenChat;
-    private readonly InputAction m_UI_CloseChat;
-    private readonly InputAction m_UI_SendChat;
-    private readonly InputAction m_UI_Remove;
-    public struct UIActions
-    {
-        private @PlayerControls m_Wrapper;
-        public UIActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @OpenChat => m_Wrapper.m_UI_OpenChat;
-        public InputAction @CloseChat => m_Wrapper.m_UI_CloseChat;
-        public InputAction @SendChat => m_Wrapper.m_UI_SendChat;
-        public InputAction @Remove => m_Wrapper.m_UI_Remove;
-        public InputActionMap Get() { return m_Wrapper.m_UI; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
-        public void AddCallbacks(IUIActions instance)
-        {
-            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @OpenChat.started += instance.OnOpenChat;
-            @OpenChat.performed += instance.OnOpenChat;
-            @OpenChat.canceled += instance.OnOpenChat;
-            @CloseChat.started += instance.OnCloseChat;
-            @CloseChat.performed += instance.OnCloseChat;
-            @CloseChat.canceled += instance.OnCloseChat;
-            @SendChat.started += instance.OnSendChat;
-            @SendChat.performed += instance.OnSendChat;
-            @SendChat.canceled += instance.OnSendChat;
-            @Remove.started += instance.OnRemove;
-            @Remove.performed += instance.OnRemove;
-            @Remove.canceled += instance.OnRemove;
-        }
-
-        private void UnregisterCallbacks(IUIActions instance)
-        {
-            @OpenChat.started -= instance.OnOpenChat;
-            @OpenChat.performed -= instance.OnOpenChat;
-            @OpenChat.canceled -= instance.OnOpenChat;
-            @CloseChat.started -= instance.OnCloseChat;
-            @CloseChat.performed -= instance.OnCloseChat;
-            @CloseChat.canceled -= instance.OnCloseChat;
-            @SendChat.started -= instance.OnSendChat;
-            @SendChat.performed -= instance.OnSendChat;
-            @SendChat.canceled -= instance.OnSendChat;
-            @Remove.started -= instance.OnRemove;
-            @Remove.performed -= instance.OnRemove;
-            @Remove.canceled -= instance.OnRemove;
-        }
-
-        public void RemoveCallbacks(IUIActions instance)
-        {
-            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IUIActions instance)
-        {
-            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public UIActions @UI => new UIActions(this);
     private int m_PlayerControlsSchemeIndex = -1;
     public InputControlScheme PlayerControlsScheme
     {
@@ -397,12 +313,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
-    }
-    public interface IUIActions
-    {
-        void OnOpenChat(InputAction.CallbackContext context);
-        void OnCloseChat(InputAction.CallbackContext context);
-        void OnSendChat(InputAction.CallbackContext context);
-        void OnRemove(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }

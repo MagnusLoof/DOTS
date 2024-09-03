@@ -21,6 +21,7 @@ public class SpawnerAuthoring : MonoBehaviour
                 SpawnPosition = float2.zero,
                 NextSpawnTime = 0,
                 SpawnRate = authoring.SpawnRate
+
             });
         }
     }
