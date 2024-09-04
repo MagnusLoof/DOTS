@@ -189,7 +189,7 @@ PrefabInstance:
     - target: {fileID: 4659004097282392276, guid: c324cee7960bcd9458302859e73514b7, type: 3}
       propertyPath: ProjectilePrefab
       value: 
-      objectReference: {fileID: 2076014153567447375, guid: 31889b2aad486754f82b249b989ad792, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4659004097282392276, guid: c324cee7960bcd9458302859e73514b7, type: 3}
       propertyPath: WeaponDirection.w
       value: 0.9754228
@@ -205,6 +205,18 @@ PrefabInstance:
     - target: {fileID: 4659004097282392276, guid: c324cee7960bcd9458302859e73514b7, type: 3}
       propertyPath: WeaponDirection.z
       value: 0.039250094
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413250434398079709, guid: c324cee7960bcd9458302859e73514b7, type: 3}
+      propertyPath: RotationSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413250434398079709, guid: c324cee7960bcd9458302859e73514b7, type: 3}
+      propertyPath: ProjectilePrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413250434398079709, guid: c324cee7960bcd9458302859e73514b7, type: 3}
+      propertyPath: ProjectileSpawnPoint
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1245637950707826603, guid: c324cee7960bcd9458302859e73514b7, type: 3}
@@ -304,8 +316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 1
-  RotationSpeed: 0
-  ProjectilePrefab: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

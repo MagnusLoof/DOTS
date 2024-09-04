@@ -25,7 +25,7 @@ public partial struct SpawnerSystem : ISystem
             if (spawner.ValueRO.NextSpawnTime < SystemAPI.Time.ElapsedTime)
             {
                 Entity newEntity = state.EntityManager.Instantiate(spawner.ValueRO.Prefab);
-                float3 position = new float3(Random.Range(10, 20), Random.Range(10, 20), 0);
+                float3 position = new float3(Random.Range(2, 5), Random.Range(2, 5), 0);
                 state.EntityManager.SetComponentData(newEntity, LocalTransform.FromPosition(position));
                 spawner.ValueRW.NextSpawnTime = (float)SystemAPI.Time.ElapsedTime + spawner.ValueRO.SpawnRate;
             }

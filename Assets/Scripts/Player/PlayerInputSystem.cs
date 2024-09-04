@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public partial class PlayerInputSystem : SystemBase
 {
     private PlayerControls PlayerControls;
-    private Entity Player;
+    public Entity Player;
 
     protected override void OnCreate()
     {
@@ -19,24 +19,15 @@ public partial class PlayerInputSystem : SystemBase
 
     protected override void OnStartRunning()
     {
-        PlayerControls.Player.Enable();
-        PlayerControls.Player.Shoot.performed += OnShoot;
+        PlayerControls.Player.Movement.Enable();
         
         Player = SystemAPI.GetSingletonEntity<PlayerTag>();
-    }
-
-    private void OnShoot(InputAction.CallbackContext context)
-    {
-        if (!SystemAPI.Exists(Player)) return;
-        SystemAPI.SetComponentEnabled<FireProjectileTag>(Player, true);
     }
 
     protected override void OnUpdate()
     {
         Vector2 moveInput = PlayerControls.Player.Movement.ReadValue<Vector2>();
         SystemAPI.SetSingleton(new PlayerMoveInput{ Value = moveInput});
-        float rotationInput = PlayerControls.Player.Rotate.ReadValue<float>();
-        SystemAPI.SetSingleton(new PlayerRotationInput{ Value = rotationInput});
     }
 
     protected override void OnStopRunning()

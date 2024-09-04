@@ -27,19 +27,11 @@ public partial struct PlayerMoveJob : IJobEntity
     public float DeltaTime;
 
     [BurstCompile]
-    private void Execute(ref LocalTransform transform, in PlayerMoveInput input, PlayerMoveSpeed speed, in PlayerRotationInput rotationInput, PlayerRotationSpeed rotationSpeed)
+    private void Execute(ref LocalTransform transform, in PlayerMoveInput input, PlayerMoveSpeed speed, ref PlayerPosition position)
     {
-        // Vector3 targetDir = new float3(input.Value.x, input.Value.y, 0);
-        // targetDir.Normalize();
-        // transform.Position += (float3)targetDir * speed.Value * DeltaTime;
-        
-        if (math.abs(rotationInput.Value) > 0)
-        {
-            // Assuming the rotation is around the Z-axis
-            float rotationAngle = rotationInput.Value * rotationSpeed.Value * DeltaTime;
-            quaternion currentRotation = transform.Rotation;
-            quaternion rotationDelta = quaternion.Euler(0, 0, rotationAngle);
-            transform.Rotation = math.mul(currentRotation, rotationDelta);
-        }
+        Vector3 targetDir = new Vector3(input.Value.x, input.Value.y, 0);
+        targetDir.Normalize();
+        transform.Position += (float3)targetDir * speed.Value * DeltaTime;
+        position.Value = transform.Position;
     }
 }
