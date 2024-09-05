@@ -28,10 +28,10 @@ public class WeaponAuthoring : MonoBehaviour
                 Value = GetEntity(authoring.ProjectilePrefab, TransformUsageFlags.Dynamic),
             });
             
-            AddComponent<MousePosition>(entity, new MousePosition
-            {
-                Value = authoring.MousePosition,
-            });
+            // AddComponent<MousePosition>(entity, new MousePosition
+            // {
+            //     Value = authoring.MousePosition,
+            // });
         }
     }
 }
@@ -60,8 +60,8 @@ public struct ProjectileSpeed : IComponentData
 
 public struct FireProjectileTag : IComponentData, IEnableableComponent { }
 
-public struct MousePosition : IComponentData
-{
-    public float3 Value;
-}
+// public struct MousePosition : IComponentData
+// {
+//     public float3 Value;
+// }
 

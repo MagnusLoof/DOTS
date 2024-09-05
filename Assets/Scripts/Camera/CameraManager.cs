@@ -8,6 +8,7 @@ public class CameraManager : MonoBehaviour
 {
     public static CameraManager Instance { get; private set; }
     public Vector3 MousePosition;
+    public Vector3 CameraPosition;
 
     private void Awake()
     {
@@ -24,9 +25,11 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        transform.position = new Vector3(CameraMovementSystem.Instance.CameraPosition.x, CameraMovementSystem.Instance.CameraPosition.y, transform.position.z);
+        CameraPosition = new Vector3(CameraMovementSystem.Instance.CameraPosition.x, CameraMovementSystem.Instance.CameraPosition.y, transform.position.z);
+        transform.position = CameraPosition;
+        CameraPosition.z = 0;
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = -transform.position.z;
-        MousePosition = Camera.main.ScreenToViewportPoint(mousePos);
+        mousePos.z = 10;
+        MousePosition = Camera.main.ScreenToWorldPoint(mousePos);
     }
 }

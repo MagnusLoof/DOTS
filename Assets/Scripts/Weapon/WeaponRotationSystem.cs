@@ -23,9 +23,9 @@ public partial struct WeaponRotationSystem : ISystem
 
 public partial struct WeaponRotationJob : IJobEntity
 {
-    private void Execute(ref LocalTransform transform, in WeaponRotationInput input, WeaponRotationSpeed speed, in MousePosition mousePosition)
+    private void Execute(ref LocalTransform transform, in WeaponTag weaponTag)
     {
-        Vector3 direction = CameraManager.Instance.MousePosition - (Vector3)transform.Position;
+        Vector3 direction = CameraManager.Instance.MousePosition - CameraManager.Instance.CameraPosition;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         angle -= 90;
         Quaternion directionalRotation = Quaternion.Euler(0, 0, angle);
