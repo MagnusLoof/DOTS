@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using Random = UnityEngine.Random;
 
-public partial struct SpawnerSystem : ISystem
+public partial struct SpawnerSystem : ISystem //,ISystemStartStop
 {
     public void OnStartRunning(ref SystemState state)
     {
@@ -25,8 +25,7 @@ public partial struct SpawnerSystem : ISystem
             if (spawner.ValueRO.NextSpawnTime < SystemAPI.Time.ElapsedTime)
             {
                 Entity newEntity = state.EntityManager.Instantiate(spawner.ValueRO.Prefab);
-                float3 position = new float3(Random.Range(2, 5), Random.Range(2, 5), 0);
-                state.EntityManager.SetComponentData(newEntity, LocalTransform.FromPosition(position));
+                state.EntityManager.SetComponentData(newEntity, LocalTransform.FromPosition(spawner.ValueRO.SpawnPosition));
                 spawner.ValueRW.NextSpawnTime = (float)SystemAPI.Time.ElapsedTime + spawner.ValueRO.SpawnRate;
             }
         }
