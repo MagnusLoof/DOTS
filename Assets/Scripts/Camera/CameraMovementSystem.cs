@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst;
 using Unity.Entities;
-using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
@@ -19,6 +15,6 @@ public partial class CameraMovementSystem : SystemBase
 
     protected override void OnUpdate()
     {
-        CameraPosition = (Vector3)SystemAPI.GetSingleton<PlayerPosition>().Value;
+        CameraPosition = SystemAPI.GetSingleton<PlayerPosition>().Value;
     }
 }

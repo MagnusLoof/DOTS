@@ -42,8 +42,5 @@ public partial class EnemySpawnerSystem : SystemBase
         var newEnemy = ecb.Instantiate(_enemyEntity.RedEnemy);
         ecb.SetComponent(newEnemy, LocalTransform.FromPosition(new float3(10, 10,0)));
         ecb.AddComponent<EnemyTag>(newEnemy);
-        // var enemyPrefab = GetSingleton<EnemyEntity>().RedEnemy;
-        // var enemyEntity = ecb.Instantiate(enemyPrefab);
-        // ecb.SetComponent(enemyEntity, new Translation { Value = playerPos });
     }
 }

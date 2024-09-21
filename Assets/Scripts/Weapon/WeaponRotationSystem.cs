@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Burst;
 using Unity.Entities;
-using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
@@ -12,8 +9,6 @@ public partial struct WeaponRotationSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        float deltaTime = SystemAPI.Time.DeltaTime;
-
         new WeaponRotationJob
         {
         }.Schedule();
@@ -25,7 +20,7 @@ public partial struct WeaponRotationJob : IJobEntity
 {
     private void Execute(ref LocalTransform transform, in WeaponTag weaponTag)
     {
-        Vector3 direction = CameraManager.Instance.MousePosition - CameraManager.Instance.CameraPosition;
+        Vector3 direction = CameraManager.Instance.mousePosition - CameraManager.Instance.cameraPosition;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         angle -= 90;
         Quaternion directionalRotation = Quaternion.Euler(0, 0, angle);

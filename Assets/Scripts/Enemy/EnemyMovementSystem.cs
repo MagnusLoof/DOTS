@@ -2,12 +2,13 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 
 [RequireMatchingQueriesForUpdate]
+[BurstCompile]
 public partial struct EnemyMovementSystem : ISystem, ISystemStartStop
 {
     private Entity playerEntity;
+    
     public void OnCreate(ref SystemState state)
     {
         state.RequireForUpdate<PlayerTag>();
